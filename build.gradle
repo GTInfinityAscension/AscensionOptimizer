@@ -14,6 +14,16 @@ sourceSets {
 
 repositories {
     mavenCentral()
+    maven {
+        name = 'GTCEu Maven'
+        url = 'https://maven.gtceu.com'
+        content { includeGroup 'com.gregtechceu.gtceu' }
+    }
+    maven { url = "https://maven.firstdark.dev/snapshots/" }
+    maven {
+        url = "https://maven.tterrag.com/"
+        content { includeGroup("com.tterrag.registrate") }
+    }
 }
 
 version = mod_version
@@ -83,6 +93,10 @@ apply from: "$rootDir/gradle/scripts/spotless.gradle"
 dependencies {
     compileOnly("org.jetbrains:annotations:26.0.1")
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
+    // Compile-only: each feature that targets a mod is skipped when that mod is not installed.
+    modCompileOnly("com.gregtechceu.gtceu:gtceu-${minecraft_version}:7.5.3:slim") { transitive = false }
+    modCompileOnly("com.lowdragmc.ldlib:ldlib-forge-${minecraft_version}:1.0.52.a") { transitive = false }
 }
 
 mixin {
