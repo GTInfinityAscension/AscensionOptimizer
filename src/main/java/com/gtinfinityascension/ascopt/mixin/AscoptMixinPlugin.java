@@ -54,7 +54,11 @@ public final class AscoptMixinPlugin implements IMixinConfigPlugin {
         String requiredMod = Features.ALL.get(feature);
         if (requiredMod == null) return true;
         if (!Boolean.parseBoolean(switches.getProperty(feature, "true"))) return false;
-        return requiredMod.isEmpty() || LoadingModList.get().getModFileById(requiredMod) != null;
+        if (requiredMod.isEmpty()) return true;
+        for (String mod : requiredMod.split(",")) {
+            if (LoadingModList.get().getModFileById(mod.trim()) == null) return false;
+        }
+        return true;
     }
 
     @Override
