@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.gtinfinityascension.ascopt.mixin",
+  "plugin": "com.gtinfinityascension.ascopt.mixin.AscoptMixinPlugin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "ascopt.refmap.json",
+  "mixins": ["spawnchunks.MinecraftServerMixin", "spawnchunks.ServerLevelMixin"],
+  "client": [],
+  "injectors": { "defaultRequire": 1 }
+}

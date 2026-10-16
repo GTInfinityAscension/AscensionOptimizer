@@ -1,0 +1,27 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "${mod_license}"
+issueTrackerURL = "https://github.com/GTInfinityAscension/AscensionOptimizer/issues"
+
+[[mods]]
+    modId = "${mod_id}"
+    version = "${version}"
+    displayName = "${mod_name}"
+    displayURL = "${mod_url}"
+    authors = "${mod_author}"
+    description = '''
+Measured performance fixes for large modpacks. Every optimization can be turned off in config/ascopt-common.toml.
+'''
+
+    [[dependencies.${mod_id}]]
+        modId = "forge"
+        mandatory = true
+        versionRange = "[${forge_version},)"
+        ordering = "NONE"
+        side = "BOTH"
+    [[dependencies.${mod_id}]]
+        modId = "minecraft"
+        mandatory = true
+        versionRange = "[${minecraft_version}]"
+        ordering = "NONE"
+        side = "BOTH"
